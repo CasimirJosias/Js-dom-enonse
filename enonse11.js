@@ -1,15 +1,15 @@
 const div=document.querySelector('.div-color');
 
-div.onmousemove=(e)=>{
-    let x=e.x,y=e.y;
+div.onmousemove=(event)=>{
+    let absis=event.x,odone=event.y;
     
-    if(x>255){
-        x=255;
+    if(absis>255){
+        absis=255;
     }
-    if(y>255){
-        y=255;
+    if(odone>255){
+        odone=255;
     }
-    div.style.backgroundColor=`rgb(${x},${y},${(x+y)/2})`;
+    div.style.backgroundColor=`rgb(${absis},${odone},${(absis+odone)/2})`;
 
 }
 div.onmouseleave=(e)=>{
