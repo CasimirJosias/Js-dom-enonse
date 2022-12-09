@@ -1,7 +1,6 @@
-const btn=document.querySelector('#copy');
+const bouton=document.querySelector('#copy');
 const h1=document.querySelector('h1');
 const p=document.querySelector('p');
-const main=document.querySelector('main');
 
 h1.addEventListener('selectstart',(e)=>{
     e.preventDefault();
@@ -16,14 +15,13 @@ p.addEventListener('copy',(e)=>{
     e.preventDefault();
 });
 
-btn.addEventListener('click',(e)=>{
-    let range=document.createRange();
+bouton.onclick=()=>{
+    let range=new Range();
     range.setStart(h1.firstChild, 0) ;
   range.setEnd(p.firstChild, p.textContent.length);
-
-  let selection=document.getSelection();
-  selection.addRange(range);
-  console.log(selection.toString())
-  
-  navigator.clipboard.writeText( selection.toString())
-});
+    
+  let seleksyon=document.getSelection();
+  seleksyon.removeAllRanges();
+  seleksyon.addRange(range);
+  navigator.clipboard.writeText(seleksyon.toString());
+}
